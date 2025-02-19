@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .header {
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 10vh;
+            font-size: 2rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .menu {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .menu a {
+            text-decoration: none;
+            color: black;
+            font-size: 1.2rem;
+            margin: 5px 0;
+            transition: transform 0.5s;
+        }
+        .menu a:hover {
+            transform: scale(1.01);
+        }
+        .search-container {
+            margin-top: 10px;
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .search-input {
+            width: 100%;
+            padding: 8px;
+            font-size: 1rem;
+        }
+        .separator {
+            margin-top: 15px;
+            width: 100%;
+            height: 2px;
+            background-color: black;
+        }
+        .content {
+            margin: 25px 10%;
+            text-align: justify;
+        }
+        @media (max-width: 768px) {
+            .header {
+                height: 30vh;
+            }
+            .content {
+                font-size: 14px;
+            }
+        }
+        @media (min-width: 769px) {
+            .content {
+                font-size: 18px;
+            }
+        }
+    </style>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
+        function searchLinks() {
+            const input = document.getElementById('search');
+            const filter = input.value.toLowerCase();
+            const links = document.querySelectorAll('.menu a');
+            links.forEach(link => {
+                if (link.textContent.toLowerCase().startsWith(filter)) {
+                    link.style.display = 'block';
+                } else {
+                    link.style.display = 'none';
+                }
+            });
+        }
+        function clearPlaceholder(input) {
+            if (input.value === 'Введите название страницы') {
+                input.value = '';
+            }
+        }
+        function resetPlaceholder(input) {
+            if (input.value === '') {
+                input.value = 'Введите название страницы';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="header" onclick="toggleMenu()">МЕНЮ</div>
+    <div id="menu" class="menu">
+        <a href="RussianLaw.html">Российское законодательство</a>
+        <a href="NonRussianLaw.html">Зарубежное законодательство</a>
+        <a href="Words.html">Термины и определения</a>
+        <a href="TestAnswers.html">Ответы на тест</a>
+        <a href="index.html">На главную</a>
+        <div class="search-container">
+            <input type="text" id="search" class="search-input" value="Введите название страницы" onfocus="clearPlaceholder(this)" onblur="resetPlaceholder(this)" onkeyup="searchLinks()">
+        </div>
+        <div class="separator"></div>
+    </div>
+    <div class="content">
+        <h2>Теоретическое введение</h2>
+        <h3>1. Что такое законодательный уровень информационной безопасности?</h3>
+        <p>В деле обеспечения информационной безопасности успех может принести только комплексный подход. Мы уже указывали, что для защиты интересов субъектов информационных отношений необходимо сочетать меры следующих уровней:</p>
+        <ul>
+            <li>законодательного;</li>
+            <li>административного (приказы и другие действия руководства организаций, связанных с защищаемыми информационными системами);</li>
+            <li>процедурного (меры безопасности, ориентированные на людей);</li>
+            <li>программно-технического.</li>
+        </ul>
+        <p>Законодательный уровень является важнейшим для обеспечения информационной безопасности. Большинство людей не совершают противоправных действий не потому, что это технически невозможно, а потому, что это осуждается и/или наказывается обществом, потому, что так поступать не принято.</p>
+        <p>Мы будем различать на законодательном уровне две группы мер:</p>
+        <ul>
+            <li>меры, направленные на создание и поддержание в обществе негативного (в том числе с применением наказаний) отношения к нарушениям и нарушителям информационной безопасности (назовем их мерами ограничительной направленности);</li>
+            <li>направляющие и координирующие меры, способствующие повышению образованности общества в области информационной безопасности, помогающие в разработке и распространении средств обеспечения информационной безопасности (меры созидательной направленности).</li>
+        </ul>
+        <p>На практике обе группы мер важны в равной степени, но нам хотелось бы выделить аспект осознанного соблюдения норм и правил ИБ. Это важно для всех субъектов информационных отношений, поскольку рассчитывать только на защиту силами правоохранительных органов было бы наивно. Необходимо это и тем, в чьи обязанности входит наказывать нарушителей, поскольку обеспечить доказательность при расследовании и судебном разбирательстве компьютерных преступлений без специальной подготовки невозможно.</p>
+        <p>Самое важное (и, вероятно, самое трудное) на законодательном уровне создать механизм, позволяющий согласовать процесс разработки законов с реалиями и прогрессом информационных технологий. Законы не могут опережать жизнь, но важно, чтобы отставание не было слишком большим, так как на практике, помимо прочих отрицательных моментов, это ведет к снижению информационной безопасности.</p>
+    </div>
+</body>
+</html>
