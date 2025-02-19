@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .header {
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 10vh;
+            font-size: 2rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .menu {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .menu a {
+            text-decoration: none;
+            color: black;
+            font-size: 1.2rem;
+            margin: 5px 0;
+            transition: transform 0.5s;
+        }
+        .menu a:hover {
+            transform: scale(1.01);
+        }
+        .search-container {
+            margin-top: 10px;
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .search-input {
+            width: 100%;
+            padding: 8px;
+            font-size: 1rem;
+        }
+        .separator {
+            margin-top: 15px;
+            width: 100%;
+            height: 2px;
+            background-color: black;
+        }
+        .content {
+            margin: 25px 10%;
+            text-align: justify;
+        }
+		.question {
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        .answer {
+            color: green;
+        }
+        @media (max-width: 768px) {
+            .header {
+                height: 30vh;
+            }
+            .content {
+                font-size: 14px;
+            }
+        }
+        @media (min-width: 769px) {
+            .content {
+                font-size: 18px;
+            }
+        }
+    </style>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
+        function searchLinks() {
+            const input = document.getElementById('search');
+            const filter = input.value.toLowerCase();
+            const links = document.querySelectorAll('.menu a');
+            links.forEach(link => {
+                if (link.textContent.toLowerCase().startsWith(filter)) {
+                    link.style.display = 'block';
+                } else {
+                    link.style.display = 'none';
+                }
+            });
+        }
+        function clearPlaceholder(input) {
+            if (input.value === 'Введите название страницы') {
+                input.value = '';
+            }
+        }
+        function resetPlaceholder(input) {
+            if (input.value === '') {
+                input.value = 'Введите название страницы';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="header" onclick="toggleMenu()">МЕНЮ</div>
+    <div id="menu" class="menu">
+        <a href="RussianLaw.html">Российское законодательство</a>
+        <a href="NonRussianLaw.html">Зарубежное законодательство</a>
+        <a href="Words.html">Термины и определения</a>
+        <a href="TestAnswers.html">Ответы на тест</a>
+        <a href="index.html">На главную</a>
+        <div class="search-container">
+            <input type="text" id="search" class="search-input" value="Введите название страницы" onfocus="clearPlaceholder(this)" onblur="resetPlaceholder(this)" onkeyup="searchLinks()">
+        </div>
+        <div class="separator"></div>
+    </div>
+    <div class="content">
+     <h2>Ответы на тест</h2>
+    
+    <div class="question">1. Уголовный кодекс РФ не предусматривает наказания за:</div>
+    <div class="answer">✅ Массовую рассылку незапрошенной рекламной информации</div>
+    
+    <div class="question">2. Согласно Закону "Об информации, информатизации и защите информации", персональные данные — это:</div>
+    <div class="answer">✅ Сведения о фактах, событиях и обстоятельствах жизни гражданина, позволяющие идентифицировать его личность</div>
+    
+    <div class="question">3. Согласно Закону "О лицензировании отдельных видов деятельности", лицензия — это:</div>
+    <div class="answer">✅ Специальное разрешение на осуществление конкретного вида деятельности</div>
+    
+    <div class="question">4. В законопроекте "О совершенствовании информационной безопасности" (США, 2001 год) особое внимание обращено на:</div>
+    <div class="answer">✅ Средства электронной аутентификации</div>
+    
+    <div class="question">5. Уголовный кодекс РФ не предусматривает наказания за:</div>
+    <div class="answer">✅ Увлечение компьютерными играми в рабочее время</div>
+    
+    <div class="question">6. Согласно Закону "Об информации, информатизации и защите информации", конфиденциальная информация — это:</div>
+    <div class="answer">✅ Документированная информация, доступ к которой ограничивается в соответствии с законодательством РФ</div>
+    
+    <div class="question">7. Действие Закона "О лицензировании отдельных видов деятельности" не распространяется на:</div>
+    <div class="answer">✅ Образовательную деятельность в области защиты информации</div>
+    
+    <div class="question">8. В следующих странах сохранялось жесткое государственное регулирование криптосредств:</div>
+    <div class="answer">✅ Китай, Россия</div>
+    
+    <div class="question">9. Уголовный кодекс РФ не предусматривает наказания за:</div>
+    <div class="answer">✅ Ведение личной переписки на производственной технической базе</div>
+    
+    <div class="question">10. Согласно Закону "Об информации, информатизации и защите информации", риск, связанный с использованием информации из несертифицированной системы, лежит на:</div>
+    <div class="answer">✅ Потребителе информации</div>
+    
+    <div class="question">11. Действие Закона "О лицензировании отдельных видов деятельности" распространяется на:</div>
+    <div class="answer">✅ Деятельность по использованию, рекламе и распространению шифровальных средств</div>
+    
+    <div class="question">12. В законопроекте "О совершенствовании информационной безопасности" (США, 2001 год) особое внимание обращено на:</div>
+    <div class="answer">✅ Смягчение ограничений на экспорт криптосредств</div>
+	
+</body>
+</html>
